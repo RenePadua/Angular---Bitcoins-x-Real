@@ -1,0 +1,65 @@
+<div class="container-fluid">
+
+<!--  HISTÓRICO   -->
+
+<div class="card mt-3  bg-dark border-light text-center"  style="max-width: 400px;">
+
+<h2 class="mt-2">Histórico de Conversão</h2>
+    <img src="https://www.countryflags.io/br/shiny/64.png">
+<p>EUR/USD/BTC</p>
+
+</div>
+
+<div id="grid-table" class="container mt-3 table bg-dark table-striped">
+
+<div class="row">
+  <div class="col">
+  Data e Horário
+  </div>
+  <div class="col">
+  Euro (EUR)
+  <img src="https://www.countryflags.io/eu/shiny/64.png">
+  </div>
+
+  <div class="col">
+  Dólar (USD)
+  <img src="https://www.countryflags.io/us/shiny/64.png">
+  </div>
+
+  <div class="col">
+  Bitcoin (BTC)
+  <img
+          src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg"
+        />
+  </div>
+
+</div>
+
+
+<div id="valores" class="row bg-dark" *ngFor="let price of this.brl.updateList">
+<div class="col">
+  {{
+    price.timestamp | date: 'd/MM/y hh:mm a':'-0300'
+  }}
+</div>
+
+<div id='eurCoin' class="col">
+€ {{
+    ((37580.262)/price.BRL).toFixed(6)
+  }}
+</div>
+
+<div id='usdCoin' class="col">
+US$ {{
+    (price.USD/price.BRL).toFixed(6)
+  }}
+</div>
+<div id='btcCoin' class="col">
+BTC {{
+    (1/price.BRL).toFixed(8)
+  }}
+
+</div>
+</div>
+</div>
+</div>
